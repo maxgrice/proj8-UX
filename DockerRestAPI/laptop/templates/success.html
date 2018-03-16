@@ -1,0 +1,24 @@
+<h1>Success</h1>
+<p>Your credentials were successfully recorded</p>
+<h1>User Information:</h1>
+<p id="id">{{ id }}
+</p>
+<p id="username">{{ username }}
+</p>
+<p id="password">{{ password }}
+</p>
+<hr>
+
+<script>
+$.getJSON( "/user", { text: txt }, function(data) {
+	id = data.result._id;
+	username = data.result.username;
+	password = data.result.password;
+	console.log("Username is: " + username)
+	console.log("id is: " + id)
+	console.log("Password is: " + password)
+	$("#id").html(id);
+	$("#username").html(username);
+	$("#password").html(password);
+});
+</script>

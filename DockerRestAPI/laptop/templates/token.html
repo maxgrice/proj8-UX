@@ -1,0 +1,19 @@
+<h1>Login Success!</h1>
+<p>Use the following token to make your queries</p>
+<h1>Token:</h1>
+<p id="token">{{ token }}
+</p>
+<h1>Duration:</h1>
+<p id="duration">{{ duration }}
+</p>
+<hr>
+<script>
+$.getJSON( "/api/token", { text: txt }, function(data) {
+	token = data.result.token;
+	duration = data.result.duration;
+	console.log("Token is: " + token)
+	console.log("Duration is: " + duration)
+	$("#token").html(token);
+	$("#duration").html(duration);
+});
+</script>
